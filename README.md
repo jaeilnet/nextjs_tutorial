@@ -1,44 +1,17 @@
 # Next js
 
-```js
-// 넥스트가 이 함수의 이름을 발견하면 프리렌더링 과정 동안 이 함수를 실행 함
-// 직접 부르진 않음
-// return 된 jsx 스냅샷을 html 컨텐츠로 사용
+### next_init 넥스트 초기세팅 파일
 
-// 넥스트가 비동기로 프로미스가 반환 될 때 기다렸다가 component 를 통해서 사전렌더링 함
+- npx create-next-app 이 에러가 나서 따로 백업해둠
 
-export async function getStaticProps() {
-  // 보통은 서버에서만 작동 함 ex) date fetch , db connect
-  // 클라이언트에서 실행 되지 않음
-  // 코드 빌드 과정에서만 동작하기 때문
-  // CDN 에 저장
-  // 빠르다 캐시하고 다시 사용하기 때문
+### next_study
 
-  return {
-    props: {
-      meetups: Dummy,
-    },
-    // 페이지를 서버에서 다시 만듬
-    // 이전에 만든 페에지를 대체함
-    // 시간 초
-    revalidate: 10,
-  };
-}
+- 스터디를 위한 폴더
 
-// export async function getServerSideProps(context) {
-// // getStaticProps 와 차이
-// // ServerSideProps 는 빌드 과정에서는 실행되지 않는다.
-// // 어떤 코드라도 서버에서 실행
+### next_udemy
 
-// // 서버에 요청이 들어 올 때마다 실행 됨
-// // fetch, api
+- 유데미 nextjs 수강내용
 
-// const req = context.req;
-// const res = context.res;
-// return {
-// props: {
-// meetups: Dummy,
-// },
-// };
-// }
-```
+### nextjs-blog
+
+- next-js 튜토리얼
