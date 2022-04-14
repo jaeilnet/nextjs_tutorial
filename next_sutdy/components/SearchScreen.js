@@ -14,7 +14,7 @@ const SearchScreen = ({ searchData }) => {
         <div className={classes.notFound}>
           <div>
             <span className={classes.searchParams}>
-              {router.query.productId}
+              {router.query.displayName}
             </span>
             의 검색 결과가 없습니다
           </div>

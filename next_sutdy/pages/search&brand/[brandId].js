@@ -1,16 +1,12 @@
 import React from "react";
-import SearchScreen from "../../components/SearchScreen";
-// import { useRouter } from "next/router";
+import List from "../../components/List";
 import useFetch from "../../components/useFetch";
 
-const SearchProduct = ({ searchData }) => {
-  //   const router = useRouter();
-
-  console.log(searchData, "searchData");
-
+const SearchBrand = ({ searchData }) => {
   return (
     <React.Fragment>
-      <SearchScreen searchData={searchData} />
+      <List list={searchData} />
+      <div>dd</div>
     </React.Fragment>
   );
 };
@@ -20,8 +16,8 @@ export async function getServerSideProps(ctx) {
     "https://gift.kakao.com/a/v1/pages/productGroups/collections?page=1&size=100&productCollectionIds"
   );
 
-  const searchData = list.items.filter((e) =>
-    e.displayName.includes(ctx.params.productId.trim())
+  const searchData = list.items.filter(
+    (e) => +e.brandId === +ctx.query.brandId
   );
 
   return {
@@ -31,4 +27,4 @@ export async function getServerSideProps(ctx) {
   };
 }
 
-export default SearchProduct;
+export default SearchBrand;

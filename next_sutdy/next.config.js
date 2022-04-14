@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    loader: "imagUrl",
+    loader: "imgix",
     path: "https://st.kakaocdn.net/product/gift/product/",
   },
 };

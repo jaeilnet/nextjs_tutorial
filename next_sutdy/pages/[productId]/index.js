@@ -12,7 +12,7 @@ const ProductDetail = ({ detailItems }) => {
   );
 };
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
   const { list } = await useFetch(
     "https://gift.kakao.com/a/v1/pages/productGroups/collections?page=1&size=100&productCollectionIds"
   );
@@ -25,6 +25,19 @@ export async function getServerSideProps(ctx) {
     props: {
       detailItems: filter,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const { list } = await useFetch(
+    "https://gift.kakao.com/a/v1/pages/productGroups/collections?page=1&size=100&productCollectionIds"
+  );
+
+  return {
+    fallback: false,
+    paths: list.items.map((e) => ({
+      params: { productId: e.productId.toString() },
+    })),
   };
 }
 
